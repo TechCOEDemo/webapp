@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Leave Request App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">XYZ Marketing IND PVT LTD</p>
+      <h1>Leave requests</h1>
+      <p class="subtitle">A simple demo app for submitting and tracking leave.</p>
+    </header>
+
+    <section class="summary" aria-label="Leave summary">
+      <div class="summary-card">
+        <span class="summary-label">Annual leave balance</span>
+        <strong id="balance">30 days</strong>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Requests submitted</span>
+        <strong id="request-count">0</strong>
+      </div>
+    </section>
+
+    <section class="panel request-form-panel">
+      <h2>Request leave</h2>
+      <form id="leave-form">
+        <label for="employee">Employee name</label>
+        <input id="employee" name="employee" type="text" placeholder="e.g. Alex Morgan" required>
+
+        <label for="leave-type">Leave type</label>
+        <select id="leave-type" name="leave-type" required>
+          <option value="Annual">Annual leave</option>
+          <option value="Sick">Sick leave</option>
+          <option value="Personal">Personal leave</option>
+        </select>
+
+        <div class="date-grid">
+          <div>
+            <label for="start-date">Start date</label>
+            <input id="start-date" name="start-date" type="date" required>
+          </div>
+          <div>
+            <label for="end-date">End date</label>
+            <input id="end-date" name="end-date" type="date" required>
+          </div>
+        </div>
+
+        <label for="reason">Reason (optional)</label>
+        <textarea id="reason" name="reason" rows="3" placeholder="Add a short note"></textarea>
+
+        <button type="submit">Submit request</button>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="list-heading">
+        <h2>Recent requests</h2>
+        <label class="filter-label" for="status-filter">Filter
+          <select id="status-filter">
+            <option value="All">All</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </label>
+      </div>
+      <ul id="request-list" class="request-list">
+        <li class="empty-state">No requests yet. Submit a request above.</li>
+      </ul>
+    </section>
+    <footer>Demo only · Sample data stays in this page session</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
